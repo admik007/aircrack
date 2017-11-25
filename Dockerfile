@@ -20,6 +20,11 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y dist-upgrade
 RUN apt-get -y autoremove
-RUN apt-get -y install crunch aircrack-ng
+RUN apt-get -y install build-essential libssl-dev libsqlite3-dev crunch aircrack-ng wget p7zip p7zip-full beignet-opencl-icd beignet beignet-dev nvidia-cuda-* 
+
+RUN wget https://hashcat.net/files/hashcat-4.0.1.7z
+RUN 7z x hashcat-4.0.1.7z
+
+VOLUME [ " /data " ]
 
 CMD /while true; do echo ""; sleep 10; done
